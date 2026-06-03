@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: daemon-set-pod
+  labels:
+    env: deamon
+  namespace: ns-manifest
+spec:
+  selector:
+    matchLabels:
+      env: daemon
+  template:
+    metadata:
+      name: daemon-temp
+      labels:
+        env: daemon
+    spec:
+      containers:
+      - name: daemon-cont
+        image: amazon/cloudwatch-agent
