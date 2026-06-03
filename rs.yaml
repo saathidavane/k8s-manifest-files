@@ -30,6 +30,7 @@ metadata:
   name: rs-svc
   labels:
     env: rs-label
+  namespace: ns-manifest
 spec:
   type: LoadBalancer
   selector:
