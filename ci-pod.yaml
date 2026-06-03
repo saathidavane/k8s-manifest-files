@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ClusterIP
+metadata:
+  name: ci-pod
+  labels:
+    env: devops
+  namespace: ns-manifest 
+spec:
+  containers:
+  - name: nginx-cipod
+    image: nginx
+    ports:
+    - name: ci-port
+      containerPort: 80
+
