@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: pod 
+metadata:
+  name: np-pod
+  labels:
+    env: devops
+  namespace: ns-manifest
+spec:
+  containers:
+  - name: httpd-np-pod
+    image: httpd 
+    ports:
+    - name: np-port 
+      containerPort: 80

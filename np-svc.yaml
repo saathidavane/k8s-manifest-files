@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service 
+metadata:
+  name: np-svc
+  labels:
+    env: devops
+  namespace: ns-manifest 
+spec:
+  type: NodePort
+  selector: 
+    env: devops 
+  ports:
+  - name: np-svc-port
+    protocol: TCP
+    port: 80 
+    targetPort: 80
+
