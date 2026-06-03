@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: lb-pod
+  labels:
+    env: cloud 
+  namespace: ns-manifest
+spec:
+  containers:
+    - name: lb-cont
+      image: tomcat
+      ports:
+      - name: lb-port 
+        containerPort: 8080
