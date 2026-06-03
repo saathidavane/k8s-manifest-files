@@ -3,12 +3,12 @@ kind: Service
 metadata:
   name: np-svc
   labels:
-    env: devops
+    env: np-pod
   namespace: ns-manifest 
 spec:
   type: NodePort
   selector: 
-    env: devops 
+    env: np-pod 
   ports:
   - name: np-svc-port
     protocol: TCP

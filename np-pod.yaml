@@ -3,7 +3,7 @@ kind: pod
 metadata:
   name: np-pod
   labels:
-    env: devops
+    env: np-pod
   namespace: ns-manifest
 spec:
   containers:
