@@ -1,0 +1,46 @@
+apiVersion: apps/v1 
+kind: StatefulSet 
+metadata:
+  name: ss-pod
+  labels:
+    obj: ssdb
+spec:
+  replicas: 2
+  ServiceName: headless-svc 
+  selector: 
+    matchLabels:
+      obj: ssdb
+  template:
+    metadata:
+      name: db-temp
+      labels:
+        obj: ssdb
+    spec:
+      containers:
+      - name: db-cont
+        image: mysql:latest
+        ports: 
+        - containerPort: 3306
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: root123
+        - name: MYSQL_USER
+          value: admin
+        - name: MYSQL_PASSWORD
+          value: admin123
+        - name: MYSQL_DATABASE
+          value: ss-db
+...
+---
+apiVersion: v1 
+kind: Service 
+metadata:
+  name: headless-svc
+  labels: 
+    obj: ssdb
+spec:
+  selector:
+    obj: ssdb 
+    ports: 
+    - port: 80
+    clusterIP: None 
