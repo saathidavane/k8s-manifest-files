@@ -18,7 +18,7 @@ spec:
         stat: deploy 
     spec:
       containers:
-      - name: nginx:cont
+      - name: nginx-cont
         image: nginx 
         ports:
         - containerPort: 80
