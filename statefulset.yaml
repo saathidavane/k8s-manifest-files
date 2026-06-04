@@ -6,7 +6,7 @@ metadata:
     obj: ssdb
 spec:
   replicas: 2
-  ServiceName: headless-svc 
+  serviceName: headless-svc 
   selector: 
     matchLabels:
       obj: ssdb
@@ -41,6 +41,6 @@ metadata:
 spec:
   selector:
     obj: ssdb 
-    ports: 
-    - port: 80
-    clusterIP: None 
+  ports: 
+  - port: 3306
+  clusterIP: None 
