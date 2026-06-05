@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: StatefulSet 
+metadata:
+  name: ss-config 
+  labels:
+    type: config 
+spec: 
+  replicas: 3
+  serviceName: ss-config-svc
+  selector :
+    matchLabels:
+      type: config 
+  template: 
+    metadata:
+      name: ss-db-temp
+      labels:
+        type: config 
+    spec:
+      containers:
+      - name: mysql-cont
+        image: mysql:latest
+        ports:
+        - containerPort: 3306
+        env: 
+        - name: MYSQL_ROOT_PASSWORD 
+          valueFrom: 
+            configMapKeyRef:
+              name: config-map 
+              key: MYSQL_ROOT_PASSWORD 
+        - name: MYSQL_USER
+          valueFrom:
+            configMapKeyRef: 
+              name: config-map 
+              key: MYSQL_USER
+        - name: MYSQL_USER_PASSWORD
+          valueFrom: 
+            configMapKeyRef: 
+              name: config-map 
+              key: MYSQL_USER_PASSWORD
+        - name: MYSQL_DATABASE
+          valueFrom: 
+            configMapKeyRef:
+              name: config-map 
+              key: MYSQL_DATABASE 
+
+...
+---
+apiVersion: v1 
+kind: Service 
+metadata:
+  name: ss-config-svc
+  labels:
+    type: config 
+spec: 
+  type: NodePort 
+  selector:
+    type: config 
+  ports: 
+  - port: 3306
+    targetPort : 3306
