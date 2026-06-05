@@ -4,7 +4,12 @@ metadata:
   name: selector-pod
   labels:
     type: selector
-spec: 
+spec:
+  tolerations:
+  - key: "type"
+    operator: "Equal"
+    value: "taint"
+    effect: "NoSchedule"
   nodeSelector:
     type: prod 
   containers:
