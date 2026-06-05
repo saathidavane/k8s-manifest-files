@@ -1,0 +1,17 @@
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: tol-pod
+  labels:
+    type: tol
+spec:
+  toleeations:
+  - key: "type"
+    operator: "Equal"
+    value: "taint"
+    effect: "NoSchedule"
+  containers:
+  - name: tol-cont
+    image: nginx
+    ports:
+      containerPort: 80 
