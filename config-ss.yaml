@@ -32,11 +32,11 @@ spec:
             configMapKeyRef: 
               name: config-map 
               key: MYSQL_USER
-        - name: MYSQL_USER_PASSWORD
+        - name: MYSQL_PASSWORD
           valueFrom: 
             configMapKeyRef: 
               name: config-map 
-              key: MYSQL_USER_PASSWORD
+              key: MYSQL_PASSWORD
         - name: MYSQL_DATABASE
           valueFrom: 
             configMapKeyRef:
