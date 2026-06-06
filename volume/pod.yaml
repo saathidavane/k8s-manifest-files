@@ -7,7 +7,7 @@ metadata:
 spec:
   volumes: 
   - name: my-vol
-  PersistentVolumeClaim:
+  persistentVolumeClaim:
     claimName: mypvc 
   containers:
   - name: nginx-cont
