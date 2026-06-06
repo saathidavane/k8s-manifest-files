@@ -1,0 +1,13 @@
+apiVersion: v1 
+kind: PersistentVolumeClaim 
+metadata:
+  name: mypvc
+  labels:
+    vol: pv 
+spec: 
+  resources:
+    requests:
+      storage: 5Gi 
+  storageClassName: stanadard 
+  accessModes:
+  - ReadWriteOnce
