@@ -6,7 +6,7 @@ metadata:
       type: autoscale 
     namespace: autoscaling 
 spec: 
-  scaleTargetRef: 
+  targetRef: 
     apiVersion: apps/v1
     kind: Deployment 
     name: vpa-deploy 
