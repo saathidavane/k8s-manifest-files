@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: vpa-deploy
+  labels:
+    type: autoscale 
+  namespace: autoscaling 
+spec:
+  replicas: 1
+  selector: 
+    matchLabels:
+      type: autoscale 
+  template:
+    metadata:
+      name: deploy-temp
+      labels:
+        type: autoscale 
+    spec:
+      containers:
+      - name: nginx-cont
+        image: nginx:latest
+        ports:
+        - containerPort: 80 
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi 
+          limits:
+            cpu: 200m
+            memory: 256Mi     
+    
+...
+---
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: deploy-svc
+  labels: 
+    type: autoscale 
+  namespace: autoscaling
+spec:
+  type: NodePort
+  selector:
+    type: autoscale 
+  ports:
+  - port: 80 
+    targetPort: 80 
