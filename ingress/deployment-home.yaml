@@ -1,0 +1,36 @@
+apiVersion: apps/v1 
+kind: Deployment 
+metadata:
+  name: home-nginx
+  labels:
+    app: home 
+spec: 
+  replicas: 1
+  selector: 
+  matchLabels:
+    app: home
+  template: 
+    metadata:
+      name: home-temp
+    labels: 
+      app: home 
+  containers:
+  - name: home-cont 
+    image: nginx:latest 
+    ports: 
+      containerPort: 80 
+...
+---
+apiVersion: v1 
+kind: Service 
+metadata: 
+  name: my-home-svc 
+  labels: 
+    app: home 
+spec: 
+  type: ClusterIP 
+  selector: 
+    app: home 
+  ports: 
+  - port: 80 
+    targetPort: 80 
