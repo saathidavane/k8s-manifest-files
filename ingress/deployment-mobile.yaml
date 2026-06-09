@@ -12,13 +12,13 @@ spec:
   template: 
     metadata:
       name: mobile-temp
-    labels: 
-      app: mobile 
-  containers:
-  - name: mobile-cont 
-    image: httpd:latest 
-    ports: 
-    - containerPort: 80 
+      labels: 
+        app: mobile 
+    containers:
+    - name: mobile-cont 
+      image: httpd:latest 
+      ports: 
+      - containerPort: 80 
 ...
 ---
 apiVersion: v1 

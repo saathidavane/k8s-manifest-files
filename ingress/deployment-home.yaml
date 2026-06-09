@@ -12,13 +12,13 @@ spec:
   template: 
     metadata:
       name: home-temp
-    labels: 
-      app: home 
-  containers:
-  - name: home-cont 
-    image: nginx:latest 
-    ports: 
-    - containerPort: 80 
+      labels: 
+        app: home 
+    containers:
+    - name: home-cont 
+      image: nginx:latest 
+      ports: 
+      - containerPort: 80 
 ...
 ---
 apiVersion: v1 
