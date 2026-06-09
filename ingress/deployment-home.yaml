@@ -7,8 +7,8 @@ metadata:
 spec: 
   replicas: 1
   selector: 
-  matchLabels:
-    app: home
+    matchLabels:
+      app: home
   template: 
     metadata:
       name: home-temp
@@ -18,7 +18,7 @@ spec:
   - name: home-cont 
     image: nginx:latest 
     ports: 
-      containerPort: 80 
+    - containerPort: 80 
 ...
 ---
 apiVersion: v1 
