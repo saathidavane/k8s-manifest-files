@@ -1,0 +1,35 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: alb-ingress
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+spec:
+  ingressClassName: alb
+  rules:
+  - http:
+      paths:
+      - path: /home
+        pathType: Prefix
+        backend:
+          service:
+            name: my-home-svc
+            port:
+              number: 80
+
+      - path: /laptop
+        pathType: Prefix
+        backend:
+          service:
+            name: my-laptop-svc
+            port:
+              number: 8080
+
+      - path: /mobile
+        pathType: Prefix
+        backend:
+          service:
+            name: my-mobile-svc
+            port:
+              number: 80
