@@ -14,11 +14,12 @@ spec:
       name: home-temp
       labels: 
         app: home 
-    containers:
-    - name: home-cont 
-      image: nginx:latest 
-      ports: 
-      - containerPort: 80 
+    spec:
+      containers:
+      - name: home-cont 
+        image: nginx:latest 
+        ports: 
+        - containerPort: 80 
 ...
 ---
 apiVersion: v1 

@@ -14,11 +14,12 @@ spec:
       name: mobile-temp
       labels: 
         app: mobile 
-    containers:
-    - name: mobile-cont 
-      image: httpd:latest 
-      ports: 
-      - containerPort: 80 
+    spec:
+      containers:
+      - name: mobile-cont 
+        image: httpd:latest 
+        ports: 
+        - containerPort: 80 
 ...
 ---
 apiVersion: v1 

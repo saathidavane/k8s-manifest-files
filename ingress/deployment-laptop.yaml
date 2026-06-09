@@ -14,11 +14,12 @@ spec:
       name: laptop-temp
       labels: 
         app: laptop 
-    containers:
-    - name: laptop-cont 
-      image: tomcat:latest 
-      ports: 
-      - containerPort: 8080 
+    spec: 
+      containers:
+      - name: laptop-cont 
+        image: tomcat:latest 
+        ports: 
+        - containerPort: 8080 
 ...
 ---
 apiVersion: v1 
