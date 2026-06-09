@@ -26,10 +26,10 @@ spec:
             port:
               number: 8080
 
-      - path: /mobile
+      - path: /index
         pathType: Prefix
         backend:
-          service:
+          service:    
             name: my-mobile-svc
             port:
               number: 80
